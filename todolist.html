@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>To-Do List</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+	 <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<h1>To-Do List</h1>
+	<input type="text" id="todo" placeholder="add task">
+	<button onclick="js_function()" class="btn btn-outline-success">Add</button>
+	<ul id="list">
+	</ul>
+	<script type="text/javascript">
+		var task = document.getElementById("list");
+		function js_function(){
+			var value = document.getElementById("todo").value;
+			var li = document.createElement("LI");
+			var textNode = document.createTextNode(value);
+			li.appendChild(textNode);
+			task.appendChild(li);
+		}
+		task.addEventListener("click", function(event){
+			if (event.target.tagName === "LI") {
+				event.target.classList.toggle("checked");
+			}
+		}, false);
+
+		
+</script>
+</body>
+</html>
