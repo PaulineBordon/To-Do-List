@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="todoTxt" type="text">
+    <button id="addBtn">Add Todo</button>
+    <button id="delBtn"> Delete</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        const addBtn = document.getElementById('addBtn')
+        const todoTxt = document.getElementById('todoTxt')
+        const todoList = document.getElementById('todoList')
+        const delBtn = document.getElementById('delBtn')
+
+        function addList(task = null) {
+            if (task) {
+                todos.push({
+                    task: task,
+                    isCompleted: false
+                })
+            }
+
+            const list = todos.map(function(todo) {
+                return `<li>${todo.task}</li>`
+            })
+
+            todoList.innerHTML = list.join('')
+
+            // localstorage
+            localStorage.setItem('todos', JSON.stringify(todos))
+        }
+
+        const fromLocalStorage = localStorage.getItem('todos')
+        let todos = fromLocalStorage ? JSON.parse(fromLocalStorage) : []
+        const deletelocal = localStorage.remove('delBtn')
+
+        addList()
+
+        addBtn.addEventListener('click', function() {
+            addList(todoTxt.value)
+            todoTxt.value = ''
+        })
+    </script>
+</body>
+</html>
