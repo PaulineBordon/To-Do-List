@@ -12,17 +12,32 @@
 <body>
 	<h1>To-Do List</h1>
 	<input type="text" id="todo" placeholder="add task">
-	<button onclick="js_function()" class="btn btn-outline-success">Add</button>
-	<ul id="list">
-	</ul>
+	<button onclick="pending_function()" class="btn btn-outline-success">Add</button>
+	<table>
+		<tr>
+			<th>Pending task</th>
+			<th>&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+			<th>Completed</th>
+		</tr>
+		<tr>
+			<td><ul id="pending"></ul>
+			</td>
+			<td><ul id="complete"></ul>
+			</td>
+		</tr>
+	</table>
+	
 	<script type="text/javascript">
-		var task = document.getElementById("list");
-		function js_function(){
+		var task = document.getElementById("pending");
+		var done = document.getElementById("complete");
+
+		function pending_function(){
 			var value = document.getElementById("todo").value;
 			var li = document.createElement("LI");
 			var textNode = document.createTextNode(value);
 			li.appendChild(textNode);
 			task.appendChild(li);
+
 		}
 		task.addEventListener("click", function(event){
 			if (event.target.tagName === "LI") {
@@ -30,7 +45,14 @@
 			}
 		}, false);
 
+
+		function complete_funtion(){
+				var display = document.createElement("dis");
+				display.appendChild("LI");
+				done.appendChild(display);
+		}
+
 		
 </script>
-</body>
+</body>  
 </html>

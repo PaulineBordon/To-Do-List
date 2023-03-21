@@ -10,12 +10,22 @@ body{
 	font-family: sans-serif;
 	background-color: #c8fae4;
 	position: absolute;
-	top: 100px;
-	left: 400px;
+	top: 10%;
+	left: 30%;
+	right: 30%;
 	border-style: double;
 	min-width: 350px;
 	min-height: 300px;
 	padding-left: 50px;
+	padding-right: 50px;
 	border-radius: 50px;
 	
+}
+
+#todo{
+	border-color: #000000;
+	border-style: solid;
+	border-radius: 5px;
+	width: 75%;
+
 }
